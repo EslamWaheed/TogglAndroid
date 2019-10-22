@@ -59,6 +59,16 @@ public class DataManagerIMP implements DataManager {
     }
 
     @Override
+    public void setStatus(String status) {
+        mPreferencesHelper.setStatus(status);
+    }
+
+    @Override
+    public String getStatus() {
+        return mPreferencesHelper.getStatus();
+    }
+
+    @Override
     public Single<UserResponse> getUser(String authkey) {
         return apiHelper.getUser(authkey);
     }

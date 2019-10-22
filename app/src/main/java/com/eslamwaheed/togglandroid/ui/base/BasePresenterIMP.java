@@ -40,7 +40,6 @@ public class BasePresenterIMP<V extends BaseView> implements BasePresenter<V> {
         getBaseView().showToastMessage(error.getMessage());
     }
 
-
     public boolean isViewAttached() {
         return mMvpView != null;
     }
@@ -48,7 +47,6 @@ public class BasePresenterIMP<V extends BaseView> implements BasePresenter<V> {
     public V getBaseView() {
         return mMvpView;
     }
-
 
     public DataManager getDataManager() {
         return mDataManager;
@@ -60,26 +58,6 @@ public class BasePresenterIMP<V extends BaseView> implements BasePresenter<V> {
 
     public CompositeDisposable getCompositeDisposable() {
         return mCompositeDisposable;
-    }
-
-    @Override
-    public String getAppLanguage() {
-        return "";
-    }
-
-    @Override
-    public void onLanguageSelected(String value) {
-
-    }
-
-    @Override
-    public String getAppCurrency() {
-        return "";
-    }
-
-    @Override
-    public void onCurrencySelected(String s) {
-
     }
 
     @Override
@@ -110,5 +88,15 @@ public class BasePresenterIMP<V extends BaseView> implements BasePresenter<V> {
     @Override
     public String getToken() {
         return mDataManager.getToken();
+    }
+
+    @Override
+    public void setStatus(String status) {
+        mDataManager.setStatus(status);
+    }
+
+    @Override
+    public String getStatus() {
+        return mDataManager.getStatus();
     }
 }

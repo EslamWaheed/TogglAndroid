@@ -17,4 +17,8 @@ public interface PreferencesHelper {
     void setToken(String token);
 
     String getToken();
+
+    void setStatus(String status);
+
+    String getStatus();
 }

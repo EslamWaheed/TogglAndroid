@@ -10,6 +10,9 @@ import com.eslamwaheed.togglandroid.di.ActivityContext;
 import com.eslamwaheed.togglandroid.ui.activity.login.LoginPresenter;
 import com.eslamwaheed.togglandroid.ui.activity.login.LoginPresenterIMP;
 import com.eslamwaheed.togglandroid.ui.activity.login.LoginView;
+import com.eslamwaheed.togglandroid.ui.activity.main.MainPresenter;
+import com.eslamwaheed.togglandroid.ui.activity.main.MainPresenterIMP;
+import com.eslamwaheed.togglandroid.ui.activity.main.MainView;
 import com.eslamwaheed.togglandroid.ui.activity.splash.SplashPresenter;
 import com.eslamwaheed.togglandroid.ui.activity.splash.SplashPresenterIMP;
 import com.eslamwaheed.togglandroid.ui.activity.splash.SplashView;
@@ -69,6 +72,11 @@ public class ActivityModule { // providing (Adapters, Presenters, LayoutManagers
 
     @Provides
     LoginPresenter<LoginView> providesLoginPresenter(LoginPresenterIMP<LoginView> presenterIMP) {
+        return presenterIMP;
+    }
+
+    @Provides
+    MainPresenter<MainView> providesMainPresenter(MainPresenterIMP<MainView> presenterIMP) {
         return presenterIMP;
     }
 }

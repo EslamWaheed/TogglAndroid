@@ -8,14 +8,6 @@ public interface BasePresenter<V extends BaseView> {
 
     void handleApiError(Throwable error);
 
-    String getAppLanguage();
-
-    void onLanguageSelected(String value);
-
-    String getAppCurrency();
-
-    void onCurrencySelected(String s);
-
     void setUserName(String userName);
 
     String getUserName();
@@ -27,4 +19,8 @@ public interface BasePresenter<V extends BaseView> {
     void setToken(String token);
 
     String getToken();
+
+    void setStatus(String status);
+
+    String getStatus();
 }

@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 
 import com.eslamwaheed.togglandroid.R;
 import com.eslamwaheed.togglandroid.ui.activity.login.LoginActivity;
+import com.eslamwaheed.togglandroid.ui.activity.main.MainActivity;
 import com.eslamwaheed.togglandroid.ui.base.BaseActivity;
 
 import javax.inject.Inject;
@@ -35,7 +36,13 @@ public class SplashActivity extends BaseActivity implements SplashView {
         getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));
         mPresenter.onAttach(this);
-        intent = new Intent(this, LoginActivity.class);
+        if (mPresenter.getStatus() != null && mPresenter.getStatus().equals("1")) {
+            //todo goto main
+            intent = new Intent(this, MainActivity.class);
+        } else {
+            intent = new Intent(this, LoginActivity.class);
+        }
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

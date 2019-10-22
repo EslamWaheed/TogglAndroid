@@ -16,6 +16,7 @@ public class PreferencesHelperIMP implements PreferencesHelper {
     private static final String Email = "email";
     private static final String UserPassword = "user_password";
     private static final String Token = "token";
+    private static final String Status = "status";
 
     private final SharedPreferences mPrefs;
     private final Context context;
@@ -66,6 +67,16 @@ public class PreferencesHelperIMP implements PreferencesHelper {
     @Override
     public String getToken() {
         return mPrefs.getString(Token, null);
+    }
+
+    @Override
+    public void setStatus(String status) {
+        mPrefs.edit().putString(Status, status).apply();
+    }
+
+    @Override
+    public String getStatus() {
+        return mPrefs.getString(Status, null);
     }
 
 }

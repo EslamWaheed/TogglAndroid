@@ -19,6 +19,10 @@ public interface DataManager {
 
     String getToken();
 
+    void setStatus(String status);
+
+    String getStatus();
+
     Single<UserResponse> getUser(String authkey);
 
 }

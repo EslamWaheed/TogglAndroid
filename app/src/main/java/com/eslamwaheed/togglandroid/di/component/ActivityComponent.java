@@ -3,6 +3,7 @@ package com.eslamwaheed.togglandroid.di.component;
 import com.eslamwaheed.togglandroid.di.PerActivity;
 import com.eslamwaheed.togglandroid.di.module.ActivityModule;
 import com.eslamwaheed.togglandroid.ui.activity.login.LoginActivity;
+import com.eslamwaheed.togglandroid.ui.activity.main.MainActivity;
 import com.eslamwaheed.togglandroid.ui.activity.splash.SplashActivity;
 import com.eslamwaheed.togglandroid.ui.base.BaseActivity;
 
@@ -18,4 +19,5 @@ public interface ActivityComponent {
 
     void inject(SplashActivity splashActivity);
 
+    void inject(MainActivity mainActivity);
 }
