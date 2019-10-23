@@ -13,4 +13,9 @@ public class MainPresenterIMP<V extends MainView> extends BasePresenterIMP<V> im
     public MainPresenterIMP(DataManager mDataManager, CompositeDisposable mCompositeDisposable, SchedulerProvider mSchedulerProvider) {
         super(mDataManager, mCompositeDisposable, mSchedulerProvider);
     }
+
+    @Override
+    public void onNavigationClick(int id) {
+        getBaseView().changeNavigationFragment(id);
+    }
 }

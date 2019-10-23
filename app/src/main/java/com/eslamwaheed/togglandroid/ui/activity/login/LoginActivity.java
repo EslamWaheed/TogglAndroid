@@ -1,5 +1,6 @@
 package com.eslamwaheed.togglandroid.ui.activity.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.cardview.widget.CardView;
 
 import com.eslamwaheed.togglandroid.R;
 import com.eslamwaheed.togglandroid.model.user.UserResponse;
+import com.eslamwaheed.togglandroid.ui.activity.main.MainActivity;
 import com.eslamwaheed.togglandroid.ui.base.BaseActivity;
 
 import javax.inject.Inject;
@@ -76,7 +78,8 @@ public class LoginActivity extends BaseActivity implements LoginView {
         //todo save user date
         mPresenter.saveUser(username, password, userResponse.getData().getApi_token(), "1");
         //todo goto main activity
-
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override

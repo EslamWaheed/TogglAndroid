@@ -1,14 +1,21 @@
 package com.eslamwaheed.togglandroid.ui.activity.main;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.eslamwaheed.togglandroid.R;
 import com.eslamwaheed.togglandroid.ui.base.BaseActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity implements MainView {
@@ -17,6 +24,9 @@ public class MainActivity extends BaseActivity implements MainView {
     @Inject
     MainPresenter<MainView> mPresenter;
 
+    @BindView(R.id.bottomNavigationView)
+    BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +34,32 @@ public class MainActivity extends BaseActivity implements MainView {
         getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));
         mPresenter.onAttach(this);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                mPresenter.onNavigationClick(menuItem.getItemId());
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public void changeNavigationFragment(int id) {
+        switch (id) {
+            case R.id.navigation_timer:
+                Log.d(TAG, "navigation_home");
+//                replaceFragment(new ClientHomeFragment());
+                break;
+        }
+    }
+
+    @Override
+    public void replaceFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
     }
 
     @Override
