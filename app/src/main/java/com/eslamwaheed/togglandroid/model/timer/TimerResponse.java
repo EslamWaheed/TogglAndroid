@@ -142,13 +142,5 @@ public class TimerResponse implements Serializable {
             e.printStackTrace();
         }
         return sdf.format(date);
-//        Date date = new Date();
-//        try {
-//            date = new SimpleDateFormat("MM/dd/yyyy").parse(start);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return date.toString();
     }
 }
