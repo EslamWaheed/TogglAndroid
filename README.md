@@ -1,7 +1,9 @@
 ## TogglAndroid
 
 ## Features:
-*
+* Authenticate with the Toggl API using username/password.
+* View user time entries for the last month grouped by date.
+* View the details of a time entry.
    
    
 ## Downlaod APK
