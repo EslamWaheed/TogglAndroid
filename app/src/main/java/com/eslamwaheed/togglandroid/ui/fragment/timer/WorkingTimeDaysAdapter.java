@@ -1,6 +1,7 @@
 package com.eslamwaheed.togglandroid.ui.fragment.timer;
 
 import android.content.Context;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,11 +46,17 @@ public class WorkingTimeDaysAdapter extends RecyclerView.Adapter<WorkingTimeDays
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         String key = stringKeys.get(i);
+        long allDuration = 0;
         List<TimerResponse> timerResponses = timerPerDate.get(key);
+        for (TimerResponse seconds : timerResponses) {
+            allDuration += seconds.getDuration();
+        }
         WorkingTimeDaysSubAdapter workingTimeDaysSubAdapter = new WorkingTimeDaysSubAdapter(timerPresenter, context);
         viewHolder.recyclerView_working_timer_days_items.setAdapter(workingTimeDaysSubAdapter);
         workingTimeDaysSubAdapter.refreshList(timerResponses);
         viewHolder.textView_working_timer_days_items_title.setText(key);
+        viewHolder.textView_working_timer_days_items_time.setText(DateUtils.formatElapsedTime(allDuration));
+
     }
 
     @Override
