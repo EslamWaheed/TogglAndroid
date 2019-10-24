@@ -19,6 +19,9 @@ import com.eslamwaheed.togglandroid.ui.activity.splash.SplashView;
 import com.eslamwaheed.togglandroid.ui.base.BasePresenter;
 import com.eslamwaheed.togglandroid.ui.base.BasePresenterIMP;
 import com.eslamwaheed.togglandroid.ui.base.BaseView;
+import com.eslamwaheed.togglandroid.ui.fragment.timer.TimerPresenter;
+import com.eslamwaheed.togglandroid.ui.fragment.timer.TimerPresenterIMP;
+import com.eslamwaheed.togglandroid.ui.fragment.timer.TimerView;
 import com.eslamwaheed.togglandroid.utils.rx.AppSchedulerProvider;
 import com.eslamwaheed.togglandroid.utils.rx.SchedulerProvider;
 
@@ -77,6 +80,11 @@ public class ActivityModule { // providing (Adapters, Presenters, LayoutManagers
 
     @Provides
     MainPresenter<MainView> providesMainPresenter(MainPresenterIMP<MainView> presenterIMP) {
+        return presenterIMP;
+    }
+
+    @Provides
+    TimerPresenter<TimerView> providesTimerPresenter(TimerPresenterIMP<TimerView> presenterIMP) {
         return presenterIMP;
     }
 }

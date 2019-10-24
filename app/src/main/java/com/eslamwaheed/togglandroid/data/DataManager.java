@@ -1,7 +1,10 @@
 package com.eslamwaheed.togglandroid.data;
 
 
+import com.eslamwaheed.togglandroid.model.timer.TimerResponse;
 import com.eslamwaheed.togglandroid.model.user.UserResponse;
+
+import java.util.List;
 
 import io.reactivex.Single;
 
@@ -25,5 +28,8 @@ public interface DataManager {
 
     Single<UserResponse> getUser(String authkey);
 
+    Single<List<TimerResponse>> getTimer(String authkey,
+                                         String start_date,
+                                         String end_date);
 }
 

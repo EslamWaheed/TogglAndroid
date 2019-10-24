@@ -4,8 +4,11 @@ import android.content.Context;
 
 import com.eslamwaheed.togglandroid.data.prefs.PreferencesHelper;
 import com.eslamwaheed.togglandroid.di.ApplicationContext;
+import com.eslamwaheed.togglandroid.model.timer.TimerResponse;
 import com.eslamwaheed.togglandroid.model.user.UserResponse;
 import com.eslamwaheed.togglandroid.rest.ApiHelper;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -71,6 +74,11 @@ public class DataManagerIMP implements DataManager {
     @Override
     public Single<UserResponse> getUser(String authkey) {
         return apiHelper.getUser(authkey);
+    }
+
+    @Override
+    public Single<List<TimerResponse>> getTimer(String authkey, String start_date, String end_date) {
+        return apiHelper.getTimer(authkey, start_date, end_date);
     }
 
 }

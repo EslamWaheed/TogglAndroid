@@ -6,6 +6,7 @@ import com.eslamwaheed.togglandroid.ui.activity.login.LoginActivity;
 import com.eslamwaheed.togglandroid.ui.activity.main.MainActivity;
 import com.eslamwaheed.togglandroid.ui.activity.splash.SplashActivity;
 import com.eslamwaheed.togglandroid.ui.base.BaseActivity;
+import com.eslamwaheed.togglandroid.ui.fragment.timer.TimerFragment;
 
 import dagger.Component;
 
@@ -20,4 +21,6 @@ public interface ActivityComponent {
     void inject(SplashActivity splashActivity);
 
     void inject(MainActivity mainActivity);
+
+    void inject(TimerFragment timerFragment);
 }

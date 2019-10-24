@@ -1,4 +1,3 @@
-
 package com.eslamwaheed.togglandroid.model.user;
 
 import com.google.gson.annotations.Expose;

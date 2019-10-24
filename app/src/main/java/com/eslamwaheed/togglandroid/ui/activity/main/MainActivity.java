@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.eslamwaheed.togglandroid.R;
 import com.eslamwaheed.togglandroid.ui.base.BaseActivity;
+import com.eslamwaheed.togglandroid.ui.fragment.timer.TimerFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import javax.inject.Inject;
@@ -41,6 +42,7 @@ public class MainActivity extends BaseActivity implements MainView {
                 return true;
             }
         });
+        pushFragment(new TimerFragment());
     }
 
     @Override
@@ -48,7 +50,7 @@ public class MainActivity extends BaseActivity implements MainView {
         switch (id) {
             case R.id.navigation_timer:
                 Log.d(TAG, "navigation_home");
-//                replaceFragment(new ClientHomeFragment());
+                replaceFragment(new TimerFragment());
                 break;
         }
     }
